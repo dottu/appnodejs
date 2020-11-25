@@ -1,0 +1,31 @@
+doctype
+html
+body
+
+h2 Category
+div(style = "margin-left : 100px")
+    form(action="/post/category/createcategory",method='POST')
+        label Name :
+        br
+        input( name="name",type="text")
+        //- br
+        //- label Description
+        //- br
+        //- input(name="description",type="text" )
+        //- br
+        //- label image:
+        //- br
+        //- input( name="image" ,type="text")
+        //- br
+        //- label Createat:
+        //- br
+        //- input( name="createat" ,type="text")
+        //- br
+        //- label Updateat:
+        //- br
+        //- input( name="updateat",type="text")
+        br
+        br
+        button Create
+        br
+        a(href="http://localhost:3001/post/category") Back

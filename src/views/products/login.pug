@@ -1,0 +1,20 @@
+extends ../layout/layout.pug
+
+block content
+
+    div(style= "margin-left: 400px;padding-top: 100px; margin-right: 800px")
+        h2 Login
+        form(action="/login", method="POST")
+            .form-group
+                label Username
+                input.form-control(type='text',name = "username", placeholder='username',value= "admin")
+            .form-group
+                label Password
+                input.form-control(type='password',name="pass", placeholder='Password', value= "admin")
+            //- .form-check
+            //-     input#exampleCheck1.form-check-input(type='checkbox')
+            //-     label.form-check-label(for='exampleCheck1') Remember
+            button.btn.btn-primary(type='submit') Login
+            br
+            br
+            a(href="") Forgot Password 

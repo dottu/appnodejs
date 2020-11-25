@@ -1,0 +1,46 @@
+extends ../layout/layout.pug
+
+block content
+
+    .container-fluid.my-5
+      .row
+        .col
+          .card
+            .card-header.bg-primary.text-white.text-uppercase News
+            .card-body
+              .categoty.my-3 
+                if (news && news.length > 0)
+                  table.table.table-bordered
+                    thead
+                      tr.bg-info.text-white
+                        th  id
+                        th  title
+                        th  imgage
+                        th  Description
+                        th  status
+                        th  idauthor
+                        th  CreateAt
+                        th  UpdateAt
+                        th
+                    tbody
+                      each ct in news
+                        tr
+                          td=  ct.idnews
+                          td=  ct.title
+                          td
+                            img(src='/uploads/'+ct.img, width="50px", height="50px")
+                          td=  ct.description
+                          td=  ct.status
+                          td=  ct.idauthor
+                          td=  ct.createat
+                          td=  ct.updateat
+                          td
+                           a.btn.btn-primary(href="/") DELETE
+                           a.btn.btn-primary(href="/catenews/") edit
+                else
+                  p No user to display
+
+                //- if(category && category.length > 0)
+                  
+
+              a.btn.btn-primary(href="http://localhost:3001/post/news/ctnews") Create new user

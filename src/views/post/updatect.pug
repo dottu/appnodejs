@@ -1,0 +1,20 @@
+doctype
+html
+body
+
+h2 Category
+div(style = "margin-left : 100px")
+    form(action="/post/category/update/:id",method='POST')
+        label idcategory
+        br
+        each n in result
+            input(name= "idcategory",type="hidden",value = "" )
+        br
+        label Name :
+        br
+        input( name="name",type="text")
+        br
+        br
+        button Create
+        br
+        a(href="http://localhost:3001/post/category") Back

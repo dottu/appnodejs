@@ -1,0 +1,16 @@
+div(style = "margin-left: 300px;padding-top: 100px")
+    form(action="/user/edit/"+result.id, method="POST")
+        label id
+        br
+        input(type="text", name="id", value=result.id readonly)
+        br
+        label User
+        br
+        input(type="text", name= "username", value=result.username) 
+        br
+        label Password
+        br
+        input(type="password",name ="pass", value=result.pass) 
+        br
+        br
+        button Create Account

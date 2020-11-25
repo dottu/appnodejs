@@ -1,0 +1,55 @@
+extends ../layout/layout.pug
+
+block content
+
+    div(style = "margin-left : 100px")
+        h2  Table Tin Tuc
+
+        a(href="/catenews") Create 
+        form.form-row(action="/catenews/view", method="get")
+            input.form-row.mr-sm-2(type='text', placeholder='Search', name = 'q')
+            select.form-row.mr-sm-2(name="idcategory")
+                option(value="") Thể loại
+                if(listtheloai.length > 0)
+                    each ctt in listtheloai
+                        option(value=ctt.idcategory)
+                            span #{ctt.name}
+            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+        if(danhsachbaiviet && danhsachbaiviet.length > 0)
+            table.table
+                thead 
+                    tr  
+                        //- th 
+                        th id
+                        th Image
+                        th title
+                        th description
+                        th status
+                        th Tác giả
+                        th Thể Loại
+                        th createat
+                        th updateat
+                tbody
+                    each ne in danhsachbaiviet
+                            tr(scope='row')
+                                //- td
+                                    //- a(href="/catenews/view/delete/"+ne.idnews) Delete
+                                    //- input(type="checkbox", value=ne.idnews)
+                                td= ne.idnews
+                                td
+                                    img(src='/uploads/'+ne.img, width = "50px",heiglt="50px")
+                                td= ne.title
+                                td= ne.description
+                                td= ne.status
+                                td= ne.objtacgia ? ne.objtacgia.name : ''
+                                td
+                                    each ct in ne.arraytheloai
+                                        span #{ct.name} ,
+                                        br
+                                td= ne.createat
+                                td= ne.updateat
+                                td 
+                                    a(href="/catenews/view/delete/"+ne.idnews) Delete
+                                    a(href="/catenews/view/"+ne.idnews) Edit
+

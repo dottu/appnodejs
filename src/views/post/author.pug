@@ -1,0 +1,38 @@
+extends ../layout/layout.pug
+
+block content
+
+    .container-fluid.my-5
+      .row
+        .col-8.offset-2
+          .card
+            .card-header.bg-primary.text-white.text-uppercase Author
+            .card-body
+              .author.my-3 
+                if (author && author.length > 0)
+                  table.table.table-bordered
+                    thead
+                      tr.bg-info.text-white
+                        th  idAuthor
+                        th  Name
+                        th  CreateAt 
+                        th  UpdateAt
+                        th
+                    tbody
+                      each at in author
+                        tr
+                          td=  at.idauthor 
+                          td=  at.name
+                          td=  at.createat
+                          td=  at.updateat
+                          td 
+                            a.btn.btn-primary(href="/post/author/"+at.idauthor) DELETE
+                            .btn.btn-primary VIEW
+                else
+                  p No user to display
+
+              a.btn.btn-primary(href="/post//author/createauthor") Create new user
+              a.btn.btn-primary(href="/") Back
+
+
+

@@ -1,0 +1,23 @@
+doctype
+html
+body
+
+h2 Author
+div(style = "margin-left : 100px")
+    form(action="/post/author/createauthor", method="POST")
+        label Name :
+        br
+        input(name="name",type="text")
+        br
+        label Createat:
+        br
+        input(name="createat" ,type="text")
+        br
+        label Updateat:
+        br
+        input( name="updateat",type="text")
+        br
+        br
+        button Create
+        br
+        a(href="http://localhost:3001/post/author",) Back

@@ -1,0 +1,47 @@
+extends ../layout/layout.pug
+
+block content
+    h2(style ="margin-left : 100px") Tin tuc
+
+    div(style="margin-left: 100px")
+        form(action="/catenews", method="post", enctype="multipart/form-data")
+            label Img
+            br
+            input(name="img",type="file")
+            br
+            label title
+            br
+            input(name="title",type="text")
+            br
+            lable Description
+            br
+            input(name="description",type="text")
+            br
+            label Status
+            br
+            input(name="status",type="text")
+            br
+            br
+            select(name="idauthor")
+                option(value="") Lựa chọn tác giả
+                each au in author
+                    option(value=au.idauthor) !{au.name}
+            br
+            label Createat
+            br
+            input(name="createat",type="date")
+            br
+            lable Updateat
+            br
+            input(name="updateat",type="date")
+            br
+            label Chọn tin tức 
+            br
+            each ct in category
+                input(type="checkbox",name="idcategory",value =""+ct.idcategory+"")
+                label #{ct.name}
+            br
+            br
+            input(type="submit" , value="submit")
+            br
+            a(href="/catenews/view") Back

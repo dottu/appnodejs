@@ -1,0 +1,29 @@
+extends ../layout/layout.pug
+
+block content
+    .container-fluid.my-5
+      .row
+        .col-8.offset-2
+          .card
+            .card-header.bg-primary.text-white.text-uppercase Category
+            .card-body
+              .categoty.my-3 
+                if (category && category.length > 0)
+                  table.table.table-bordered
+                    thead
+                      tr.bg-info.text-white
+                        th  idCategory
+                        th  Name
+                        th
+                    tbody
+                      each ct in category
+                        tr
+                          td=  ct.idcategory
+                          td=  ct.name
+                          td
+                           a.btn.btn-primary(href="/post/category/"+ct.idcategory) DELETE
+                           a.btn.btn-primary(href="/post/category/update/"+ct.idcategory) edit
+                else
+                  p No user to display
+
+              a.btn.btn-primary(href="http://localhost:3001/post/category/createcategory") Create new user
